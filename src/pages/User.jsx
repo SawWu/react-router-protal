@@ -1,8 +1,9 @@
 import React from 'react';
 
-const User = () => {
+const User = ({match}) => {
+  console.log();
   return (
-    <div> User Page</div>
+    <div> User {match.params.id}</div>
   )
 };
 

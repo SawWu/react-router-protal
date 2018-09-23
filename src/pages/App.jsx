@@ -20,11 +20,13 @@ class App extends Component {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/user/5">User</Link></li>
               <li><Link to="/about">About</Link></li>
+              <li><Link to="/new">New Home</Link></li>
             </ul>
             <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/about" component={About}/>
-              <Route path="/user/:id" component={User}/>
+              <Route path="/user/:id" component={User} {...this.props}/>
+              <Route path="/new" render={() => <div>Welcome New Home</div>}/>
               <Route component={NoMatch}/>
             </Switch>
           </div>
