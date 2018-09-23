@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import About from './About';
 import User from './User';
 import Home from './Home'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import NoMatch from './NoMatch'
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
 import './App.css';
 
@@ -20,9 +21,12 @@ class App extends Component {
               <li><Link to="/user/5">User</Link></li>
               <li><Link to="/about">About</Link></li>
             </ul>
-            <Route path="/" exact component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="/user/:id" component={User}/>
+            <Switch>
+              <Route path="/" exact component={Home}/>
+              <Route path="/about" component={About}/>
+              <Route path="/user/:id" component={User}/>
+              <Route component={NoMatch}/>
+            </Switch>
           </div>
         </div>
       </Router>
