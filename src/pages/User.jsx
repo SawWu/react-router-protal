@@ -1,9 +1,11 @@
 import React from 'react';
+import queryString from 'query-string';
 
-const User = ({match}) => {
-  console.log();
+const User = ({location}) => {
+  let parsed = queryString.parse(location.search.substr(1));
+  console.log(parsed);
   return (
-    <div> User {match.params.id}</div>
+    <div>User{parsed.id}:{parsed.name}</div>
   )
 };
 
